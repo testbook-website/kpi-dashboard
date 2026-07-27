@@ -12,10 +12,5 @@
   "type": "commonjs",
   "dependencies": {
     "googleapis": "^173.0.0"
-  },
-  "devDependencies": {
-    "cors": "^2.8.6",
-    "dotenv": "^17.4.2",
-    "express": "^5.2.1"
   }
 }
