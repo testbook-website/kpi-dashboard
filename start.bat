@@ -4,12 +4,20 @@ color 0B
 echo ==================================================
 echo           TEAM KPI DASHBOARD STARTER
 echo ==================================================
+echo Starting local server for KPI Dashboard...
 echo.
-echo Starting the Node.js backend server...
-start "KPI Dashboard Server" cmd /c "node server.js & pause"
 
-echo Waiting for server to initialize...
-timeout /t 3 /nobreak > nul
+:: Check if node_modules exists
+if not exist node_modules (
+    echo First time setup: Installing required packages...
+    npm install
+    echo.
+)
 
-echo Launching your dashboard in the browser...
-start http://localhost:3000
+:: Start the server
+echo Server is starting! Open your browser to http://localhost:3000
+echo Keep this black window open while using the dashboard.
+echo To stop the server, press Ctrl+C or close this window.
+echo.
+node local-server.js
+pause
