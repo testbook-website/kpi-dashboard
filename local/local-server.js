@@ -8,8 +8,8 @@ const kpiHandler = require('../api/kpi');
 const app = express();
 app.use(cors());
 
-// Serve static files from the root directory
-app.use(express.static(path.join(__dirname, '..')));
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Route the API call to our Vercel-compatible handler
 app.get('/api/kpi', (req, res) => kpiHandler(req, res));
