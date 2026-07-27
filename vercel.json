@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/kpi.js", "use": "@vercel/node" },
+    { "src": "public/index.html", "use": "@vercel/static" },
+    { "src": "public/index.css", "use": "@vercel/static" },
+    { "src": "public/app.js", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/kpi", "dest": "/api/kpi.js" },
+    { "src": "/(.*)", "dest": "/public/$1" },
+    { "src": "/", "dest": "/public/index.html" }
+  ]
+}
