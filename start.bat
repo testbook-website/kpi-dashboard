@@ -20,5 +20,5 @@ echo Server is starting! Open your browser to http://localhost:3000
 echo Keep this black window open while using the dashboard.
 echo To stop the server, press Ctrl+C or close this window.
 echo.
-node local-server.js
+node local\local-server.js
 pause

@@ -3,13 +3,13 @@ const cors = require('cors');
 const path = require('path');
 require('dotenv').config();
 
-const kpiHandler = require('./api/kpi');
+const kpiHandler = require('../api/kpi');
 
 const app = express();
 app.use(cors());
 
 // Serve static files from the root directory
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, '..')));
 
 // Route the API call to our Vercel-compatible handler
 app.get('/api/kpi', (req, res) => kpiHandler(req, res));
