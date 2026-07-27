@@ -11,7 +11,7 @@ echo.
 if not exist node_modules (
     echo First time setup: Installing required packages...
     npm install
-    npm install express cors dotenv --no-save
+    npm install express cors dotenv googleapis --no-save
     echo.
 )
 
