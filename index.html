@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team KPI Dashboard</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="password-overlay" class="password-overlay">
+        <div class="password-box">
+            <h2>Dashboard Access</h2>
+            <p>Please enter the password to view the KPI dashboard.</p>
+            <input type="password" id="password-input" placeholder="Enter password" />
+            <button id="password-btn">Submit</button>
+            <p id="password-error" class="error-msg hidden">Incorrect password.</p>
+        </div>
+    </div>
+
+    <div class="dashboard-container" id="main-dashboard" style="display: none;">
+        <header class="header">
+            <div>
+                <h1>Team KPI Dashboard</h1>
+                <p class="subtitle">Content Writing Team Performance</p>
+            </div>
+            <div class="header-actions">
+                <span id="last-updated">Last updated: --</span>
+                <button id="refresh-btn" class="refresh-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.59-9.21l5.67-5.67"/></svg>
+                    Refresh
+                </button>
+            </div>
+        </header>
+
+        <section class="summary-strip">
+            <div class="summary-card">
+                <div class="summary-title">Total Target</div>
+                <div class="summary-value" id="total-target">--</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-title">Total Till Now</div>
+                <div class="summary-value" id="total-till-now">--</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-title">Overall Achieved</div>
+                <div class="summary-value" id="overall-achieved">--%</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-title">Status Overview</div>
+                <div class="summary-value status-overview">
+                    <span class="status-pill on-track"><span id="count-on-track">0</span> On Track</span>
+                    <span class="status-pill behind"><span id="count-behind">0</span> Behind</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="data-section">
+            <div class="table-container">
+                <table class="kpi-table">
+                    <thead>
+                        <tr>
+                            <th data-sort="name">Writer <span class="sort-icon">↕</span></th>
+                            <th data-sort="target">Target <span class="sort-icon">↕</span></th>
+                            <th data-sort="achievedToday">Achieved Today <span class="sort-icon">↕</span></th>
+                            <th data-sort="tillNow">Till Now <span class="sort-icon">↕</span></th>
+                            <th data-sort="totalWordcount">Total Wordcount <span class="sort-icon">↕</span></th>
+                            <th data-sort="avgWordcount">Avg Words/Article <span class="sort-icon">↕</span></th>
+                            <th data-sort="currentRunRate">Current Run Rate <span class="sort-icon">↕</span></th>
+                            <th data-sort="requiredRunRate">Required Run Rate <span class="sort-icon">↕</span></th>
+                            <th data-sort="status">Status <span class="sort-icon">↕</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="writers-tbody">
+                        <!-- Writer rows injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+        <div id="loading-overlay" class="loading-overlay hidden">
+            <div class="spinner"></div>
+            <p>Fetching latest data...</p>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
